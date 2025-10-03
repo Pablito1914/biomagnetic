@@ -40,7 +40,8 @@
     <!-- Cabecera y Navegación - Usando Indigo/Morado Oscuro como color base del logo -->
     <header class="bg-indigo-900 shadow-xl sticky top-0 z-50">
         <!-- Contenedor principal: Flex para controlar los elementos de izquierda, centro y derecha -->
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center h-24">
+        <!-- Se eliminó la altura fija h-24 para que la navegación vertical pueda crecer si es necesario -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center">
             
             <!-- 1. LOGO (IZQUIERDA) -->
             <div class="flex-shrink-0 mr-4">
@@ -50,10 +51,6 @@
             </div>
 
             <!-- 2. TÍTULO (CENTRO DINÁMICO) -->
-            <!-- 
-                md:text-center: Lo centramos dentro del espacio que le queda.
-                flex-grow: Permite que el título ocupe el espacio entre el logo y el menú, forzando la distancia.
-            -->
             <div class="flex-grow flex items-center justify-center">
                  <h1 class="text-xl sm:text-2xl lg:text-3xl font-extrabold text-white tracking-wider text-center md:text-2xl md:text-center">
                     BIOMAGNETIC CENTER
@@ -61,22 +58,26 @@
             </div>
 
             <!-- 3. CONTROLES DERECHOS: Navegación de Escritorio y Botón Móvil -->
-            <!-- ml-auto: Mueve este bloque al extremo derecho, asegurando que quede espacio para el título. -->
-            <div class="flex items-center space-x-4 ml-auto flex-shrink-0 z-20">
+            <!-- ml-auto: Mueve este bloque al extremo derecho -->
+            <div class="flex items-center ml-auto flex-shrink-0 z-20">
                 
-                <!-- Desktop Nav + CTA (Visible MD+) -->
-                <nav class="hidden md:flex items-center space-x-8">
-                    <!-- Links con acento Cian vibrante -->
-                    <a href="#biomagnetismo" class="text-white hover:text-cyan-400 transition duration-300 font-medium">Biomagnetismo</a>
-                    <a href="#biosteopraxia" class="text-white hover:text-cyan-400 transition duration-300 font-medium">Biosteopraxia</a>
-                    <a href="#agendas" class="text-white hover:text-cyan-400 transition duration-300 font-medium">Agendas Virtuales</a>
-                    <a href="#zapper" class="text-white hover:text-cyan-400 transition duration-300 font-medium">Equipos Zapper</a>
-                </nav>
+                <!-- Desktop Nav & CTA Group (Visible MD+): Ahora vertical -->
+                <div class="hidden md:flex flex-col items-end space-y-2">
 
-                <!-- Botón de Contacto (Visible MD+) -->
-                <a href="#contacto" class="text-white btn-gradient px-4 py-2 rounded-xl shadow-lg font-semibold hidden md:block">
-                    Reservar Cita
-                </a>
+                    <!-- Desktop Nav (Vertical Stack) -->
+                    <nav class="flex flex-col space-y-1 items-end">
+                        <!-- Links con acento Cian vibrante y texto más pequeño para mejor ajuste -->
+                        <a href="#biomagnetismo" class="text-white text-sm hover:text-cyan-400 transition duration-300 font-medium">Biomagnetismo</a>
+                        <a href="#biosteopraxia" class="text-white text-sm hover:text-cyan-400 transition duration-300 font-medium">Biosteopraxia</a>
+                        <a href="#agendas" class="text-white text-sm hover:text-cyan-400 transition duration-300 font-medium">Agendas Virtuales</a>
+                        <a href="#zapper" class="text-white text-sm hover:text-cyan-400 transition duration-300 font-medium">Equipos Zapper</a>
+                    </nav>
+
+                    <!-- Botón de Contacto (Visible MD+) -->
+                    <a href="#contacto" class="text-white btn-gradient px-4 py-2 rounded-xl shadow-lg font-semibold text-sm">
+                        Reservar Cita
+                    </a>
+                </div>
                 
                 <!-- Mobile Menu Button (Visible XS/SM) -->
                 <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none p-2 rounded-lg hover:bg-indigo-700 transition duration-300">
