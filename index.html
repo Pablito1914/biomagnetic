@@ -39,76 +39,36 @@
 
     <!-- Cabecera y Navegación - Usando Indigo/Morado Oscuro como color base del logo -->
     <header class="bg-indigo-900 shadow-xl sticky top-0 z-50">
-        <!-- Contenedor principal: Flex para controlar los elementos de izquierda, centro y derecha -->
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <!-- LOGO: Hacemos el logo más grande a partir de md (escritorio) -->
+            <h1 class="text-3xl font-extrabold text-white tracking-wide flex items-center">
+                <img src="LOGO1.jpg" 
+                     alt="Logo de Biomagnetic Center, columna vertebral y energía" 
+                     class="h-12 md:h-16 w-auto mr-3 object-contain header-logo-img"> <!-- CAMBIO AQUÍ: md:h-16 -->
+                <span class="text-white hidden sm:block font-light">BIOMAGNETIC CENTER</span>
+            </h1>
             
-            <!-- 1. LOGO (IZQUIERDA) -->
-            <div class="flex-shrink-0 mr-4">
-                 <img src="LOGO1.jpg" 
-                     alt="Logo de Biomagnetic Center" 
-                     class="h-14 md:h-16 w-auto object-contain header-logo-img">
-            </div>
+            <!-- Menú de Escritorio (visible en MD y superior) -->
+            <nav class="hidden md:flex space-x-8 items-center">
+                <!-- Links con acento Cian vibrante -->
+                <a href="#biomagnetismo" class="text-white hover:text-cyan-400 transition duration-300 font-medium">Biomagnetismo</a>
+                <a href="#biosteopraxia" class="text-white hover:text-cyan-400 transition duration-300 font-medium">Biosteopraxia</a>
+                <a href="#zapper" class="text-white hover:text-cyan-400 transition duration-300 font-medium">Equipos Zapper</a>
+                <!-- Botón de Contacto con degradado -->
+                <a href="#contacto" class="text-white btn-gradient px-4 py-2 rounded-xl shadow-lg font-semibold">
+                    Reservar Cita
+                </a>
+            </nav>
 
-            <!-- 2. TÍTULO (CENTRO DINÁMICO) -->
-            <div class="flex-grow flex items-center justify-center">
-                 <h1 class="text-xl sm:text-2xl lg:text-3xl font-extrabold text-white tracking-wider text-center md:text-2xl md:text-center">
-                    BIOMAGNETIC CENTER
-                </h1>
-            </div>
-
-            <!-- 3. CONTROLES DERECHOS: Menú Pop-up para Desktop y Botón Hamburger para Móvil -->
-            <div class="flex items-center ml-auto flex-shrink-0 z-20">
-                
-                <!-- Botón Desplegable (Pop Menu) para Desktop (Visible MD+) -->
-                <!-- Usamos 'relative' aquí para que el menú desplegable 'absolute' se posicione correctamente -->
-                <div class="hidden md:block relative">
-                    <!-- Botón/Icono que abre el menú -->
-                    <button id="desktop-menu-button" class="text-white focus:outline-none p-2 rounded-lg hover:bg-indigo-700 transition duration-300">
-                        <!-- Ícono de tres puntos verticales (lucide icon: more-vertical) -->
-                        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"></path>
-                        </svg>
-                    </button>
-                    
-                    <!-- Contenedor del Menú Desplegable (Pop-up) -->
-                    <div id="desktop-dropdown-menu" class="absolute right-0 mt-2 w-56 rounded-xl shadow-2xl bg-white hidden border border-gray-100 py-2 transition-all duration-300 origin-top-right">
-                        <!-- Links de Navegación -->
-                        <a href="#biomagnetismo" class="block px-4 py-3 text-sm text-gray-800 hover:bg-indigo-50 hover:text-indigo-600 transition duration-150 font-medium">Biomagnetismo</a>
-                        <a href="#biosteopraxia" class="block px-4 py-3 text-sm text-gray-800 hover:bg-indigo-50 hover:text-indigo-600 transition duration-150 font-medium">Biosteopraxia</a>
-                        <a href="#agendas" class="block px-4 py-3 text-sm text-gray-800 hover:bg-indigo-50 hover:text-indigo-600 transition duration-150 font-medium">Agendas Virtuales</a>
-                        <a href="#zapper" class="block px-4 py-3 text-sm text-gray-800 hover:bg-indigo-50 hover:text-indigo-600 transition duration-150 font-medium">Equipos Zapper</a>
-                        
-                        <!-- Separador y CTA -->
-                        <div class="border-t border-gray-100 my-1"></div>
-                        <a href="#contacto" class="block text-center mx-3 text-white btn-gradient px-4 py-2 rounded-xl shadow-lg font-semibold text-sm">
-                            Reservar Cita
-                        </a>
-                    </div>
-                </div>
-                
-                <!-- Mobile Menu Button (Visible XS/SM) -->
-                <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none p-2 rounded-lg hover:bg-indigo-700 transition duration-300">
-                    <!-- Icono Hamburger (Abierto) -->
-                    <svg id="icon-open" class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
-                    <!-- Icono Cerrar -->
-                    <svg id="icon-close" class="w-7 h-7 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-                </button>
-            </div>
+            <!-- Menú Móvil (visible en dispositivos pequeños - Se cambia el icono de puntos a rayas) -->
+            <button class="md:hidden text-white focus:outline-none" aria-label="Toggle Menu">
+                <!-- Ícono de rayas (Menú Hamburguesa) -->
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
         </div>
     </header>
-
-    <!-- MENÚ MÓVIL DESPLEGABLE (Vertical, Oculto por defecto) -->
-    <div id="mobile-menu" class="hidden bg-indigo-800 md:hidden pb-4 transition-all duration-300 ease-in-out">
-        <div class="px-4 pt-2 pb-3 space-y-1 sm:px-3">
-            <a href="#biomagnetismo" class="block px-3 py-3 rounded-md text-base font-medium text-white hover:bg-indigo-700 transition duration-300 border-b border-indigo-700">Biomagnetismo</a>
-            <a href="#biosteopraxia" class="block px-3 py-3 rounded-md text-base font-medium text-white hover:bg-indigo-700 transition duration-300 border-b border-indigo-700">Biosteopraxia</a>
-            <a href="#agendas" class="block px-3 py-3 rounded-md text-base font-medium text-white hover:bg-indigo-700 transition duration-300 border-b border-indigo-700">Agendas Virtuales</a>
-            <a href="#zapper" class="block px-3 py-3 rounded-md text-base font-medium text-white hover:bg-indigo-700 transition duration-300 border-b border-indigo-700">Equipos Zapper</a>
-            <!-- Botón de Contacto con degradado en el menú móvil -->
-            <a href="#contacto" class="block text-center mt-4 mx-3 text-white btn-gradient px-4 py-3 rounded-xl shadow-lg font-semibold text-lg">Reservar Cita</a>
-        </div>
-    </div>
-
 
     <!-- Sección Principal (Hero) - Diseño elegante y centrado en la salud -->
     <section class="bg-logo-soft py-20 sm:py-32 text-center border-b border-indigo-100">
@@ -171,7 +131,7 @@
                         Biosteopraxia: Libertad para tu Cuerpo
                     </h3>
                     <p class="text-gray-700 text-xl mb-6 font-light">
-                        Enfocada en la corrección de la biomecánica corporal, esta terapia manual utiliza técnicas precisas para liberar tensiones, mejorar el rango de movimiento y eliminar dolores crónicos derivados de malas posturas o lesiones.
+                        Enfocada en la corrección de la biomecánica corporal, esta terapia manual utiliza técnicas precisas para **liberar tensiones, mejorar el rango de movimiento** y eliminar dolores crónicos derivados de malas posturas o lesiones.
                     </p>
                     <a href="#contacto" class="text-cyan-600 font-bold hover:text-cyan-700 transition duration-300 flex items-center">
                         Encuentra Alivio Estructural
@@ -181,103 +141,21 @@
             </div>
         </div>
     </section>
-    
-    <!-- SECCIÓN: Agendas Virtuales (Énfasis en Morado/Indigo) -->
-    <section id="agendas" class="py-20 sm:py-32">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="p-10 bg-indigo-50 rounded-3xl shadow-2xl border border-indigo-100">
-                <div class="md:flex md:space-x-16 items-center">
-                    <!-- Contenido de las Agendas -->
-                    <div class="md:w-1/2 mb-10 md:mb-0">
-                        <span class="text-md font-semibold text-indigo-600 uppercase tracking-widest">Gestión Profesional del Bienestar</span>
-                        <h3 class="text-4xl sm:text-5xl font-extrabold text-gray-900 mt-3 mb-8">
-                            Agendas Virtuales: Control Total de tus Clientes
-                        </h3>
-                        <p class="text-gray-700 text-xl mb-6 font-light">
-                            Diseñamos e implementamos agendas virtuales personalizadas que permiten a terapeutas y profesionales del bienestar llevar un control exhaustivo de cada cliente, optimizando el seguimiento de su progreso y mejorando la calidad de vida ofrecida.
-                        </p>
-                        
-                        <!-- Puntos Clave en lista de íconos -->
-                        <ul class="space-y-4 text-gray-600 text-lg">
-                            <li class="flex items-center">
-                                <span class="text-indigo-500 font-extrabold text-2xl mr-3">✅</span>
-                                **Control de Sesiones:** Registra historial, tratamientos aplicados y evolución.
-                            </li>
-                            <li class="flex items-center">
-                                <span class="text-indigo-500 font-extrabold text-2xl mr-3">📅</span>
-                                **Optimización de Citas:** Gestión fácil de horarios, recordatorios y disponibilidad.
-                            </li>
-                            <li class="flex items-center">
-                                <span class="text-indigo-500 font-extrabold text-2xl mr-3">📈</span>
-                                **Seguimiento Personalizado:** Monitorea el mejoramiento de cada persona a lo largo del tiempo.
-                            </li>
-                        </ul>
-                        
-                        <a href="#contacto" class="inline-block mt-8 text-white btn-gradient px-8 py-3 rounded-full shadow-lg font-semibold">
-                            Solicitar Demo
-                        </a>
-                    </div>
-                    
-                    <!-- Imagen/Placeholder (Morado/Indigo Base) -->
-                    <div class="md:w-1/2">
-                        <img src="https://placehold.co/800x500/4f46e5/ffffff?text=AGENDA+VIRTUAL+Y+CONTROL" 
-                             alt="Representación de una agenda virtual o sistema de gestión de clientes" 
-                             class="rounded-3xl shadow-2xl w-full object-cover transform hover:scale-[1.01] transition duration-500">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- Sección de Confirmación Zapper (Fondo Oscuro principal, elegante) -->
     <section id="zapper" class="py-20 bg-gray-900 text-white shadow-inner">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            
-            <span class="text-md font-semibold text-fuchsia-400 uppercase tracking-widest">Apoyo de Frecuencia Inteligente</span>
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <!-- Título con acento Cian -->
             <h3 class="text-4xl sm:text-5xl font-extrabold mb-6 text-cyan-400">
-                Dispositivo Zapper: Sincroniza tu Bienestar
+                Formación en Tecnologías de Bienestar
             </h3>
-            <div class="w-16 h-1 bg-cyan-500 mx-auto mb-10 rounded-full"></div> <!-- Línea divisoria elegante -->
-
-            <p class="text-xl max-w-4xl mx-auto mb-12 font-light text-gray-300">
-                El dispositivo Zapper es la herramienta complementaria que te permite sintonizar con tu bienestar. Es un equipo de fácil uso diseñado para la gestión de frecuencias que ofrece un apoyo inteligente a tu sistema inmune.
+            <p class="text-xl max-w-3xl mx-auto mb-8 font-light text-gray-300">
+                Impartimos talleres especializados, incluyendo el uso y la comprensión de dispositivos **Zapper**. Una herramienta complementaria para la gestión de frecuencias y apoyo al sistema inmune.
             </p>
-            
-            <!-- Grid de Beneficios Clave -->
-            <div class="grid md:grid-cols-3 gap-8 mb-12">
-                
-                <!-- Beneficio 1: Impulso Natural -->
-                <div class="p-6 bg-gray-800 rounded-2xl shadow-xl border border-fuchsia-700/50 transform hover:scale-[1.03] transition duration-300">
-                    <p class="text-5xl mb-4">✨</p>
-                    <h4 class="text-2xl font-bold text-white mb-3">Impulso Natural</h4>
-                    <p class="text-gray-400 font-light">Ofrece un soporte vibracional para que tu cuerpo opere en su máximo potencial energético y mantenga su equilibrio vital.</p>
-                </div>
-                
-                <!-- Beneficio 2: Tecnología Simple -->
-                <div class="p-6 bg-gray-800 rounded-2xl shadow-xl border border-cyan-700/50 transform hover:scale-[1.03] transition duration-300">
-                    <p class="text-5xl mb-4">📱</p>
-                    <h4 class="text-2xl font-bold text-white mb-3">Tecnología Simple</h4>
-                    <p class="text-gray-400 font-light">Diseñado para que cualquier persona pueda usarlo sin complicaciones. Su fácil manejo lo convierte en tu aliado diario.</p>
-                </div>
-                
-                <!-- Beneficio 3: Hecho a tu Medida -->
-                <div class="p-6 bg-gray-800 rounded-2xl shadow-xl border border-indigo-700/50 transform hover:scale-[1.03] transition duration-300">
-                    <p class="text-5xl mb-4">🎯</p>
-                    <h4 class="text-2xl font-bold text-white mb-3">Precisión Personalizada</h4>
-                    <p class="text-gray-400 font-light">Fabricamos tu equipo de tratamiento personalizado. Una herramienta de precisión, creada con la más alta calidad para tus necesidades específicas.</p>
-                </div>
-            </div>
-
-            <!-- CTA Final -->
-            <p class="text-2xl max-w-3xl mx-auto mb-8 font-semibold text-white">
-                ¡No esperes más! Toma acción y experimenta una nueva forma de cuidar tu salud desde la frecuencia.
-            </p>
-
             <div class="inline-block p-2 rounded-full bg-cyan-600 shadow-2xl">
                 <!-- Botón con acento Fucsia, invertido para destacar -->
                 <a href="#contacto" class="inline-block bg-fuchsia-500 text-white font-bold py-3 px-8 rounded-full hover:bg-fuchsia-600 transition duration-300 shadow-lg">
-                    Quiero Mi Zapper Personalizado
+                    Ver Calendario de Talleres
                 </a>
             </div>
         </div>
@@ -306,7 +184,6 @@
                         <option value="">Selecciona tu interés principal</option>
                         <option value="biomagnetismo">Consulta de Biomagnetismo</option>
                         <option value="biosteopraxia">Consulta de Biosteopraxia</option>
-                        <option value="agendas">Información sobre Agendas Virtuales</option>
                         <option value="zapper">Información sobre Talleres/Equipos Zapper</option>
                         <option value="general">Consulta General</option>
                     </select>
@@ -344,10 +221,9 @@
         </div>
     </footer>
 
-    <!-- Script de JavaScript para el formulario y el menú móvil -->
+    <!-- Script de JavaScript para el formulario (simulación de envío) -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // Lógica del Formulario
             const form = document.getElementById('contact-form');
             const successMessage = document.getElementById('success-message');
 
@@ -364,64 +240,6 @@
                     form.style.display = 'block';
                     successMessage.classList.add('hidden');
                 }, 5000); // El mensaje se muestra por 5 segundos
-            });
-
-            // Lógica del Menú Móvil (Hamburger)
-            const mobileMenuButton = document.getElementById('mobile-menu-button');
-            const mobileMenu = document.getElementById('mobile-menu');
-            const iconOpen = document.getElementById('icon-open');
-            const iconClose = document.getElementById('icon-close');
-            const mobileLinks = mobileMenu.querySelectorAll('a');
-
-            // Alternar la visibilidad del menú móvil al hacer clic en el botón
-            mobileMenuButton.addEventListener('click', () => {
-                // Asegúrate de que el menú de escritorio esté cerrado si se abre el móvil
-                const desktopMenu = document.getElementById('desktop-dropdown-menu');
-                desktopMenu.classList.add('hidden');
-                
-                const isHidden = mobileMenu.classList.toggle('hidden');
-                
-                // Alternar los íconos (hamburguesa <-> cerrar)
-                iconOpen.classList.toggle('hidden', !isHidden);
-                iconClose.classList.toggle('hidden', isHidden);
-            });
-
-            // Cerrar el menú móvil cuando se hace clic en cualquier enlace interno
-            mobileLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    // Ocultar el menú
-                    mobileMenu.classList.add('hidden');
-                    // Mostrar el ícono de hamburguesa y ocultar el de cerrar
-                    iconOpen.classList.remove('hidden');
-                    iconClose.classList.add('hidden');
-                });
-            });
-
-            // Lógica del Menú Desplegable de Escritorio (Pop Menu)
-            const desktopMenuButton = document.getElementById('desktop-menu-button');
-            const desktopDropdown = document.getElementById('desktop-dropdown-menu');
-            const desktopLinks = desktopDropdown.querySelectorAll('a');
-
-            // 1. Alternar la visibilidad del menú al hacer clic en el botón
-            desktopMenuButton.addEventListener('click', (event) => {
-                event.stopPropagation(); // Evita que el evento se propague al document
-                desktopDropdown.classList.toggle('hidden');
-            });
-
-            // 2. Cerrar el menú si se hace clic fuera de él
-            document.addEventListener('click', (event) => {
-                if (!desktopDropdown.classList.contains('hidden') && 
-                    !desktopMenuButton.contains(event.target) && 
-                    !desktopDropdown.contains(event.target)) {
-                    desktopDropdown.classList.add('hidden');
-                }
-            });
-
-            // 3. Cerrar el menú al hacer clic en un enlace
-            desktopLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    desktopDropdown.classList.add('hidden');
-                });
             });
         });
     </script>
