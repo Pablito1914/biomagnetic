@@ -39,17 +39,27 @@
 
     <!-- Cabecera y Navegación - Usando Indigo/Morado Oscuro como color base del logo -->
     <header class="bg-indigo-900 shadow-xl sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
-            <!-- LOGO -->
+        <!-- Contenedor principal: Ahora usa flex justify-between y relative para la alineación móvil -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center relative">
+            
+            <!-- LOGO (Izquierda en Móvil) y Título de Escritorio -->
+            <!-- La clase flex mantiene el logo a la izquierda en móvil debido a justify-between en el padre. -->
             <h1 class="text-3xl font-extrabold text-white tracking-wide flex items-center">
                 <img src="LOGO1.jpg" 
                      alt="Logo de Biomagnetic Center, columna vertebral y energía" 
                      class="h-12 w-auto mr-3 object-contain header-logo-img"> 
+                <!-- El título completo solo es visible en escritorio (sm:block) -->
                 <span class="text-white hidden sm:block font-light">BIOMAGNETIC CENTER</span>
             </h1>
             
-            <!-- Botón de Menú (Hamburguesa/Puntos) - Ahora visible en todas las resoluciones para el desplegable -->
-            <!-- En escritorio, este será el botón que despliega el menú -->
+            <!-- TÍTULO (Centrado en Móvil) -->
+            <!-- Usamos posicionamiento absoluto para forzar el centrado exacto sin afectar otros elementos. -->
+            <span class="absolute left-1/2 transform -translate-x-1/2 text-white block sm:hidden font-light text-2xl z-10">
+                BIOMAGNETIC CENTER
+            </span>
+
+            <!-- Botón de Menú (Derecha en Móvil) -->
+            <!-- Al estar dentro de justify-between, se alinea automáticamente a la derecha. -->
             <button id="menu-toggle" class="text-white focus:outline-none" aria-label="Toggle Menu">
                 <!-- Ícono de tres puntos verticales -->
                 <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
