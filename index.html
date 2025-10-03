@@ -42,24 +42,32 @@
         <!-- Contenedor principal: Flex para controlar los elementos de izquierda, centro y derecha -->
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center h-24">
             
-            <!-- 1. LOGO (IZQUIERDA) - Contenedor de ancho fijo en escritorio (MD+) -->
-            <div class="flex-shrink-0 md:w-1/4 mr-4 flex items-center">
+            <!-- 1. LOGO (IZQUIERDA) -->
+            <!-- Flex-shrink-0 y width explícito para que no se encoja -->
+            <div class="flex-shrink-0 mr-4">
                  <img src="LOGO1.jpg" 
                      alt="Logo de Biomagnetic Center" 
-                     class="h-16 md:h-20 w-auto object-contain header-logo-img">
+                     class="h-14 md:h-16 w-auto object-contain header-logo-img">
             </div>
 
             <!-- 2. TÍTULO CENTRADO (BIOMAGNETIC CENTER) -->
-            <!-- flex-grow permite que tome el espacio central. En MD+ lo centramos a la izquierda del menú. -->
-            <div class="flex-grow flex justify-center items-center md:justify-start">
-                 <h1 class="text-xl sm:text-2xl lg:text-3xl font-extrabold text-white tracking-wider text-center md:text-left md:ml-4">
+            <!-- 
+                md:flex-shrink-0: En escritorio, le decimos que no crezca, solo ocupe su espacio.
+                md:absolute md:left-1/2 md:-translate-x-1/2: 
+                - Coloca el elemento en posición absoluta.
+                - Lo mueve al 50% de la izquierda del contenedor.
+                - Lo mueve 50% de su propio ancho a la izquierda para centrarlo perfectamente.
+                flex-grow y justify-center: Se mantiene para la vista móvil, que sí usa el crecimiento de flex.
+            -->
+            <div class="flex-grow flex justify-center items-center md:flex-shrink-0 md:absolute md:left-1/2 md:-translate-x-1/2">
+                 <h1 class="text-xl sm:text-2xl lg:text-3xl font-extrabold text-white tracking-wider text-center">
                     BIOMAGNETIC CENTER
                 </h1>
             </div>
 
             <!-- 3. CONTROLES DERECHOS: Navegación de Escritorio y Botón Móvil -->
-            <!-- ml-auto asegura que este bloque se vaya a la derecha. Le damos un ancho fijo en MD+. -->
-            <div class="flex items-center space-x-4 ml-auto flex-shrink-0 z-20 md:w-auto">
+            <!-- ml-auto asegura que este bloque se vaya al extremo derecho. -->
+            <div class="flex items-center space-x-4 ml-auto flex-shrink-0 z-20">
                 
                 <!-- Desktop Nav + CTA (Visible MD+) -->
                 <nav class="hidden md:flex items-center space-x-8">
