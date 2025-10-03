@@ -40,34 +40,62 @@
     <!-- Cabecera y Navegación - Usando Indigo/Morado Oscuro como color base del logo -->
     <header class="bg-indigo-900 shadow-xl sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
-            <!-- LOGO CORREGIDO PARA PUBLICACIÓN EN GITHUB PAGES -->
-            <h1 class="text-3xl font-extrabold text-white tracking-wide flex items-center">
-                <!-- Añado la clase header-logo-img para depuración -->
-                <img src="LOGO1.jpg" 
-                     alt="Logo de Biomagnetic Center, columna vertebral y energía" 
-                     class="h-12 w-auto mr-3 object-contain header-logo-img">
-                <span class="text-white hidden sm:block font-light">BIOMAGNETIC CENTER</span>
-            </h1>
-            <nav class="hidden md:flex space-x-8 items-center">
-                <!-- Links con acento Cian vibrante -->
-                <a href="#biomagnetismo" class="text-white hover:text-cyan-400 transition duration-300 font-medium">Biomagnetismo</a>
-                <a href="#biosteopraxia" class="text-white hover:text-cyan-400 transition duration-300 font-medium">Biosteopraxia</a>
-                <!-- NUEVO ELEMENTO DE MENÚ -->
-                <a href="#agendas" class="text-white hover:text-cyan-400 transition duration-300 font-medium">Agendas Virtuales</a>
-                <a href="#zapper" class="text-white hover:text-cyan-400 transition duration-300 font-medium">Equipos Zapper</a>
-                <!-- Botón de Contacto con degradado -->
-                <a href="#contacto" class="text-white btn-gradient px-4 py-2 rounded-xl shadow-lg font-semibold">
+            
+            <!-- CONTENEDOR IZQUIERDO: Logo -->
+            <div class="flex items-center">
+                <h1 class="text-3xl font-extrabold text-white tracking-wide flex items-center">
+                    <img src="LOGO1.jpg" 
+                         alt="Logo de Biomagnetic Center, columna vertebral y energía" 
+                         class="h-12 w-auto mr-3 object-contain header-logo-img">
+                    <span class="text-white hidden sm:block font-light">BIOMAGNETIC CENTER</span>
+                </h1>
+            </div>
+            
+            <!-- CONTENEDOR DERECHO: Navegación de Escritorio y Botón Móvil -->
+            <div class="flex items-center space-x-4">
+                <!-- Desktop Nav -->
+                <nav class="hidden md:flex space-x-8 items-center">
+                    <!-- Links con acento Cian vibrante -->
+                    <a href="#biomagnetismo" class="text-white hover:text-cyan-400 transition duration-300 font-medium">Biomagnetismo</a>
+                    <a href="#biosteopraxia" class="text-white hover:text-cyan-400 transition duration-300 font-medium">Biosteopraxia</a>
+                    <a href="#agendas" class="text-white hover:text-cyan-400 transition duration-300 font-medium">Agendas Virtuales</a>
+                    <a href="#zapper" class="text-white hover:text-cyan-400 transition duration-300 font-medium">Equipos Zapper</a>
+                </nav>
+
+                <!-- Botón de Contacto (visible solo en escritorio) -->
+                <a href="#contacto" class="text-white btn-gradient px-4 py-2 rounded-xl shadow-lg font-semibold hidden md:block">
                     Reservar Cita
                 </a>
-            </nav>
+                
+                <!-- Mobile Menu Button (Hamburger) - Visible solo en móvil (Superior Derecha) -->
+                <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none p-2 rounded-lg hover:bg-indigo-700 transition duration-300">
+                    <!-- Icono Hamburger (Abierto) -->
+                    <svg id="icon-open" class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                    <!-- Icono Cerrar -->
+                    <svg id="icon-close" class="w-7 h-7 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            </div>
         </div>
     </header>
+
+    <!-- MENÚ MÓVIL DESPLEGABLE (Vertical, Oculto por defecto) -->
+    <div id="mobile-menu" class="hidden bg-indigo-800 md:hidden pb-4 transition-all duration-300 ease-in-out">
+        <div class="px-4 pt-2 pb-3 space-y-1 sm:px-3">
+            <a href="#biomagnetismo" class="block px-3 py-3 rounded-md text-base font-medium text-white hover:bg-indigo-700 transition duration-300 border-b border-indigo-700">Biomagnetismo</a>
+            <a href="#biosteopraxia" class="block px-3 py-3 rounded-md text-base font-medium text-white hover:bg-indigo-700 transition duration-300 border-b border-indigo-700">Biosteopraxia</a>
+            <a href="#agendas" class="block px-3 py-3 rounded-md text-base font-medium text-white hover:bg-indigo-700 transition duration-300 border-b border-indigo-700">Agendas Virtuales</a>
+            <a href="#zapper" class="block px-3 py-3 rounded-md text-base font-medium text-white hover:bg-indigo-700 transition duration-300 border-b border-indigo-700">Equipos Zapper</a>
+            <!-- Botón de Contacto con degradado en el menú móvil -->
+            <a href="#contacto" class="block text-center mt-4 mx-3 text-white btn-gradient px-4 py-3 rounded-xl shadow-lg font-semibold text-lg">Reservar Cita</a>
+        </div>
+    </div>
+
 
     <!-- Sección Principal (Hero) - Diseño elegante y centrado en la salud -->
     <section class="bg-logo-soft py-20 sm:py-32 text-center border-b border-indigo-100">
         <div class="max-w-5xl mx-auto px-4">
             <h2 class="text-5xl sm:text-7xl font-extrabold text-gray-900 leading-snug mb-6">
-                Enciende tu Energía Interna.
+                Armoniza tu **Bienestar Holístico**
             </h2>
             <p class="text-2xl text-gray-600 mb-10 max-w-3xl mx-auto font-light">
                 Recupera la vitalidad y el equilibrio natural de tu cuerpo y mente a través de terapias energéticas y estructurales avanzadas.
@@ -96,7 +124,7 @@
                         Biomagnetismo: La Frecuencia de la Salud
                     </h3>
                     <p class="text-gray-700 text-xl mb-6 font-light">
-                        Una técnica revolucionaria que utiliza la fuerza magnética para neutralizar desequilibrios de pH, el entorno ideal para la proliferación de patógenos. Restablece la armonía interna, fortaleciendo tus defensas desde la raíz.
+                        Una técnica revolucionaria que utiliza la fuerza magnética para **neutralizar desequilibrios de pH**, el entorno ideal para la proliferación de patógenos. Restablece la armonía interna, fortaleciendo tus defensas desde la raíz.
                     </p>
                     <a href="#contacto" class="text-fuchsia-600 font-bold hover:text-fuchsia-700 transition duration-300 flex items-center">
                         Saber Más sobre Biomagnetismo
@@ -135,7 +163,7 @@
         </div>
     </section>
     
-    <!-- NUEVA SECCIÓN: Agendas Virtuales (Énfasis en Morado/Indigo) -->
+    <!-- SECCIÓN: Agendas Virtuales (Énfasis en Morado/Indigo) -->
     <section id="agendas" class="py-20 sm:py-32">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="p-10 bg-indigo-50 rounded-3xl shadow-2xl border border-indigo-100">
@@ -154,15 +182,15 @@
                         <ul class="space-y-4 text-gray-600 text-lg">
                             <li class="flex items-center">
                                 <span class="text-indigo-500 font-extrabold text-2xl mr-3">✅</span>
-                                Control de Sesiones: Registra historial, tratamientos aplicados y evolución.
+                                **Control de Sesiones:** Registra historial, tratamientos aplicados y evolución.
                             </li>
                             <li class="flex items-center">
                                 <span class="text-indigo-500 font-extrabold text-2xl mr-3">📅</span>
-                                Optimización de Citas: Gestión fácil de horarios, recordatorios y disponibilidad.
+                                **Optimización de Citas:** Gestión fácil de horarios, recordatorios y disponibilidad.
                             </li>
                             <li class="flex items-center">
                                 <span class="text-indigo-500 font-extrabold text-2xl mr-3">📈</span>
-                                Seguimiento Personalizado: Monitorea el mejoramiento de cada persona a lo largo del tiempo.
+                                **Seguimiento Personalizado:** Monitorea el mejoramiento de cada persona a lo largo del tiempo.
                             </li>
                         </ul>
                         
@@ -182,7 +210,7 @@
         </div>
     </section>
 
-    <!-- Sección de Confirmación Zapper (Fondo Oscuro principal, elegante) - TEXTO MEJORADO -->
+    <!-- Sección de Confirmación Zapper (Fondo Oscuro principal, elegante) -->
     <section id="zapper" class="py-20 bg-gray-900 text-white shadow-inner">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             
@@ -194,7 +222,7 @@
             <div class="w-16 h-1 bg-cyan-500 mx-auto mb-10 rounded-full"></div> <!-- Línea divisoria elegante -->
 
             <p class="text-xl max-w-4xl mx-auto mb-12 font-light text-gray-300">
-                El dispositivo Zapp V2.0 es la herramienta complementaria que te permite sintonizar con tu bienestar. Es un equipo de fácil uso diseñado para la gestión de frecuencias que ofrece un apoyo inteligente a tu sistema inmune.
+                El dispositivo Zapper es la herramienta complementaria que te permite sintonizar con tu bienestar. Es un equipo de fácil uso diseñado para la gestión de frecuencias que ofrece un apoyo inteligente a tu sistema inmune.
             </p>
             
             <!-- Grid de Beneficios Clave -->
@@ -297,9 +325,10 @@
         </div>
     </footer>
 
-    <!-- Script de JavaScript para el formulario (simulación de envío) -->
+    <!-- Script de JavaScript para el formulario y el menú móvil -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            // Lógica del Formulario
             const form = document.getElementById('contact-form');
             const successMessage = document.getElementById('success-message');
 
@@ -317,13 +346,35 @@
                     successMessage.classList.add('hidden');
                 }, 5000); // El mensaje se muestra por 5 segundos
             });
+
+            // Lógica del Menú Móvil
+            const menuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const iconOpen = document.getElementById('icon-open');
+            const iconClose = document.getElementById('icon-close');
+            const mobileLinks = mobileMenu.querySelectorAll('a');
+
+            // 1. Alternar la visibilidad del menú al hacer clic en el botón
+            menuButton.addEventListener('click', () => {
+                const isHidden = mobileMenu.classList.toggle('hidden');
+                
+                // 2. Alternar los íconos (hamburguesa <-> cerrar)
+                iconOpen.classList.toggle('hidden', !isHidden);
+                iconClose.classList.toggle('hidden', isHidden);
+            });
+
+            // 3. Cerrar el menú cuando se hace clic en cualquier enlace interno (navegación)
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    // Ocultar el menú
+                    mobileMenu.classList.add('hidden');
+                    // Mostrar el ícono de hamburguesa y ocultar el de cerrar
+                    iconOpen.classList.remove('hidden');
+                    iconClose.classList.add('hidden');
+                });
+            });
         });
     </script>
 
 </body>
 </html>
-
-
-
-
-
