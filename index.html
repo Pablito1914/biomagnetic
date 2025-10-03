@@ -40,7 +40,7 @@
     <!-- Cabecera y Navegación - Usando Indigo/Morado Oscuro como color base del logo -->
     <header class="bg-indigo-900 shadow-xl sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
-            <!-- LOGO: Se revierte al tamaño original h-12 sin md:h-16 -->
+            <!-- LOGO -->
             <h1 class="text-3xl font-extrabold text-white tracking-wide flex items-center">
                 <img src="LOGO1.jpg" 
                      alt="Logo de Biomagnetic Center, columna vertebral y energía" 
@@ -48,25 +48,31 @@
                 <span class="text-white hidden sm:block font-light">BIOMAGNETIC CENTER</span>
             </h1>
             
-            <!-- Menú de Escritorio (visible en MD y superior) -->
-            <nav class="hidden md:flex space-x-8 items-center">
-                <!-- Links con acento Cian vibrante -->
-                <a href="#biomagnetismo" class="text-white hover:text-cyan-400 transition duration-300 font-medium">Biomagnetismo</a>
-                <a href="#biosteopraxia" class="text-white hover:text-cyan-400 transition duration-300 font-medium">Biosteopraxia</a>
-                <a href="#zapper" class="text-white hover:text-cyan-400 transition duration-300 font-medium">Equipos Zapper</a>
-                <!-- Botón de Contacto con degradado -->
-                <a href="#contacto" class="text-white btn-gradient px-4 py-2 rounded-xl shadow-lg font-semibold">
-                    Reservar Cita
-                </a>
-            </nav>
-
-            <!-- Menú Móvil: Se mantiene el icono de puntos por defecto, ya que el SVG causó el problema -->
-            <button class="md:hidden text-white focus:outline-none" aria-label="Toggle Menu">
+            <!-- Botón de Menú (Hamburguesa/Puntos) - Ahora visible en todas las resoluciones para el desplegable -->
+            <!-- En escritorio, este será el botón que despliega el menú -->
+            <button id="menu-toggle" class="text-white focus:outline-none" aria-label="Toggle Menu">
+                <!-- Ícono de tres puntos verticales -->
                 <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                     <path d="M10 6a2 2 0 110-4 2 2 0 010 4zm0 6a2 2 0 110-4 2 2 0 010 4zm0 6a2 2 0 110-4 2 2 0 010 4z"></path>
                 </svg>
             </button>
         </div>
+        
+        <!-- Menú Desplegable (Dropdown) - Inicialmente oculto -->
+        <nav id="dropdown-menu" class="hidden absolute w-full bg-indigo-800 shadow-lg md:relative md:w-auto md:shadow-none">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 md:flex md:justify-end md:space-x-8">
+                <!-- Links: Incluye el nuevo enlace y mueve todos los existentes aquí -->
+                <a href="#biomagnetismo" class="block py-2 px-3 text-white hover:bg-indigo-700 md:inline-block md:py-0 md:hover:bg-transparent md:hover:text-cyan-400 transition duration-300 font-medium rounded-lg md:rounded-none">Biomagnetismo</a>
+                <a href="#biosteopraxia" class="block py-2 px-3 text-white hover:bg-indigo-700 md:inline-block md:py-0 md:hover:bg-transparent md:hover:text-cyan-400 transition duration-300 font-medium rounded-lg md:rounded-none">Biosteopraxia</a>
+                <a href="#zapper" class="block py-2 px-3 text-white hover:bg-indigo-700 md:inline-block md:py-0 md:hover:bg-transparent md:hover:text-cyan-400 transition duration-300 font-medium rounded-lg md:rounded-none">Equipos Zapper</a>
+                <a href="#agendas" class="block py-2 px-3 text-white hover:bg-indigo-700 md:inline-block md:py-0 md:hover:bg-transparent md:hover:text-cyan-400 transition duration-300 font-medium rounded-lg md:rounded-none">Agendas Electrónicas</a>
+                
+                <!-- Botón de Contacto (Reserva Cita) - El último elemento del menú -->
+                <a href="#contacto" class="block mt-2 md:mt-0 py-3 px-4 text-center text-white btn-gradient rounded-xl shadow-lg font-semibold transition duration-300">
+                    Reservar Cita
+                </a>
+            </div>
+        </nav>
     </header>
 
     <!-- Sección Principal (Hero) - Diseño elegante y centrado en la salud -->
@@ -141,7 +147,7 @@
         </div>
     </section>
 
-    <!-- Sección de Confirmación Zapper (Fondo Oscuro principal, elegante) -->
+    <!-- Sección de Equipos Zapper (Fondo Oscuro principal, elegante) -->
     <section id="zapper" class="py-20 bg-gray-900 text-white shadow-inner">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <!-- Título con acento Cian -->
@@ -157,6 +163,18 @@
                     Ver Calendario de Talleres
                 </a>
             </div>
+        </div>
+    </section>
+    
+    <!-- Sección de Agendas Electrónicas (Placeholder para el nuevo enlace) -->
+    <section id="agendas" class="py-20 sm:py-32 text-center">
+        <div class="max-w-4xl mx-auto px-4">
+            <h3 class="text-4xl font-extrabold text-gray-900 mb-4">
+                Agendas Electrónicas
+            </h3>
+            <p class="text-xl text-gray-600 font-light">
+                Herramientas digitales para la gestión eficiente de tu consultorio y terapias. ¡Moderniza tu práctica!
+            </p>
         </div>
     </section>
 
@@ -184,6 +202,7 @@
                         <option value="biomagnetismo">Consulta de Biomagnetismo</option>
                         <option value="biosteopraxia">Consulta de Biosteopraxia</option>
                         <option value="zapper">Información sobre Talleres/Equipos Zapper</option>
+                        <option value="agendas">Agendas Electrónicas</option>
                         <option value="general">Consulta General</option>
                     </select>
                 </div>
@@ -220,12 +239,28 @@
         </div>
     </footer>
 
-    <!-- Script de JavaScript para el formulario (simulación de envío) -->
+    <!-- Script de JavaScript para la funcionalidad del menú -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const form = document.getElementById('contact-form');
             const successMessage = document.getElementById('success-message');
+            const menuToggle = document.getElementById('menu-toggle');
+            const dropdownMenu = document.getElementById('dropdown-menu');
 
+            // 1. Funcionalidad de Toggle del Menú
+            menuToggle.addEventListener('click', () => {
+                dropdownMenu.classList.toggle('hidden');
+            });
+
+            // 2. Ocultar el menú si se hace clic fuera (opcional, pero buena práctica)
+            document.addEventListener('click', (event) => {
+                const isClickInsideMenu = menuToggle.contains(event.target) || dropdownMenu.contains(event.target);
+                if (!isClickInsideMenu && !dropdownMenu.classList.contains('hidden')) {
+                    dropdownMenu.classList.add('hidden');
+                }
+            });
+
+            // 3. Funcionalidad de Envío de Formulario
             form.addEventListener('submit', function(event) {
                 event.preventDefault();
                 
