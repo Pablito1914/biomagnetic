@@ -39,30 +39,30 @@
 
     <!-- Cabecera y Navegación - Usando Indigo/Morado Oscuro como color base del logo -->
     <header class="bg-indigo-900 shadow-xl sticky top-0 z-50">
-        <!-- Contenedor principal: Flex con padding para que los elementos se posicionen en capas -->
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center relative h-24">
+        <!-- Contenedor principal: Flex para controlar los elementos de izquierda, centro y derecha -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center h-24">
             
-            <!-- 1. LOGO (IZQUIERDA) - Permanece a la izquierda y ajustado -->
-            <div class="absolute left-4 md:left-6 lg:left-8 flex items-center z-20">
+            <!-- 1. LOGO (IZQUIERDA) - Contenedor de ancho fijo -->
+            <div class="flex-shrink-0 mr-4">
                  <img src="LOGO1.jpg" 
                      alt="Logo de Biomagnetic Center" 
                      class="h-16 md:h-20 w-auto object-contain header-logo-img">
             </div>
 
             <!-- 2. TÍTULO CENTRADO (BIOMAGNETIC CENTER) -->
-            <!-- Visible en todas las vistas. Lo centramos absolutamente dentro del contenedor y le damos un z-index menor que el menú. -->
-            <div class="absolute inset-0 flex justify-center items-center z-10 pointer-events-none">
-                 <h1 class="text-xl sm:text-2xl lg:text-3xl font-extrabold text-white tracking-wider pointer-events-auto">
+            <!-- flex-grow hace que tome el espacio central. text-center lo centra en ese espacio. -->
+            <div class="flex-grow flex justify-center items-center px-2 md:px-0">
+                 <h1 class="text-xl sm:text-2xl lg:text-3xl font-extrabold text-white tracking-wider text-center md:mr-12">
                     BIOMAGNETIC CENTER
                 </h1>
             </div>
 
             <!-- 3. CONTROLES DERECHOS: Navegación de Escritorio y Botón Móvil -->
-            <!-- Usamos "ml-auto" en el contenedor de escritorio para empujarlo a la derecha. En móvil usamos posición absoluta. -->
-            
-            <!-- Contenedor para Desktop (MD y superior) -->
-            <div class="hidden md:flex items-center space-x-4 ml-auto z-20">
-                 <nav class="space-x-8 items-center">
+            <!-- ml-auto en escritorio empuja todo el menú a la derecha. En móvil, se queda a la derecha. -->
+            <div class="flex items-center space-x-4 ml-auto flex-shrink-0 z-20">
+                
+                <!-- Desktop Nav + CTA (Visible MD+) -->
+                <nav class="hidden md:flex space-x-8 items-center">
                     <!-- Links con acento Cian vibrante -->
                     <a href="#biomagnetismo" class="text-white hover:text-cyan-400 transition duration-300 font-medium">Biomagnetismo</a>
                     <a href="#biosteopraxia" class="text-white hover:text-cyan-400 transition duration-300 font-medium">Biosteopraxia</a>
@@ -70,22 +70,19 @@
                     <a href="#zapper" class="text-white hover:text-cyan-400 transition duration-300 font-medium">Equipos Zapper</a>
                 </nav>
 
-                <!-- Botón de Contacto -->
-                <a href="#contacto" class="text-white btn-gradient px-4 py-2 rounded-xl shadow-lg font-semibold">
+                <!-- Botón de Contacto (Visible MD+) -->
+                <a href="#contacto" class="text-white btn-gradient px-4 py-2 rounded-xl shadow-lg font-semibold hidden md:block">
                     Reservar Cita
                 </a>
-            </div>
-
-            <!-- Botón de Menú Móvil (XS, SM) -->
-            <div class="absolute right-4 md:hidden flex items-center z-20">
-                <button id="mobile-menu-button" class="text-white focus:outline-none p-2 rounded-lg hover:bg-indigo-700 transition duration-300">
+                
+                <!-- Mobile Menu Button (Visible XS/SM) -->
+                <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none p-2 rounded-lg hover:bg-indigo-700 transition duration-300">
                     <!-- Icono Hamburger (Abierto) -->
                     <svg id="icon-open" class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
                     <!-- Icono Cerrar -->
                     <svg id="icon-close" class="w-7 h-7 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
                 </button>
             </div>
-            
         </div>
     </header>
 
