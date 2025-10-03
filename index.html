@@ -43,30 +43,25 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center h-24">
             
             <!-- 1. LOGO (IZQUIERDA) -->
-            <!-- Flex-shrink-0 y width explícito para que no se encoja -->
             <div class="flex-shrink-0 mr-4">
                  <img src="LOGO1.jpg" 
                      alt="Logo de Biomagnetic Center" 
                      class="h-14 md:h-16 w-auto object-contain header-logo-img">
             </div>
 
-            <!-- 2. TÍTULO CENTRADO (BIOMAGNETIC CENTER) -->
+            <!-- 2. TÍTULO (CENTRO DINÁMICO) -->
             <!-- 
-                md:flex-shrink-0: En escritorio, le decimos que no crezca, solo ocupe su espacio.
-                md:absolute md:left-1/2 md:-translate-x-1/2: 
-                - Coloca el elemento en posición absoluta.
-                - Lo mueve al 50% de la izquierda del contenedor.
-                - Lo mueve 50% de su propio ancho a la izquierda para centrarlo perfectamente.
-                flex-grow y justify-center: Se mantiene para la vista móvil, que sí usa el crecimiento de flex.
+                md:text-center: Lo centramos dentro del espacio que le queda.
+                flex-grow: Permite que el título ocupe el espacio entre el logo y el menú, forzando la distancia.
             -->
-            <div class="flex-grow flex justify-center items-center md:flex-shrink-0 md:absolute md:left-1/2 md:-translate-x-1/2">
-                 <h1 class="text-xl sm:text-2xl lg:text-3xl font-extrabold text-white tracking-wider text-center">
+            <div class="flex-grow flex items-center justify-center">
+                 <h1 class="text-xl sm:text-2xl lg:text-3xl font-extrabold text-white tracking-wider text-center md:text-2xl md:text-center">
                     BIOMAGNETIC CENTER
                 </h1>
             </div>
 
             <!-- 3. CONTROLES DERECHOS: Navegación de Escritorio y Botón Móvil -->
-            <!-- ml-auto asegura que este bloque se vaya al extremo derecho. -->
+            <!-- ml-auto: Mueve este bloque al extremo derecho, asegurando que quede espacio para el título. -->
             <div class="flex items-center space-x-4 ml-auto flex-shrink-0 z-20">
                 
                 <!-- Desktop Nav + CTA (Visible MD+) -->
