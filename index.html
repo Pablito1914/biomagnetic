@@ -42,27 +42,27 @@
         <!-- Contenedor principal: Flex para controlar los elementos de izquierda, centro y derecha -->
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center h-24">
             
-            <!-- 1. LOGO (IZQUIERDA) - Contenedor de ancho fijo -->
-            <div class="flex-shrink-0 mr-4">
+            <!-- 1. LOGO (IZQUIERDA) - Contenedor de ancho fijo en escritorio (MD+) -->
+            <div class="flex-shrink-0 md:w-1/4 mr-4 flex items-center">
                  <img src="LOGO1.jpg" 
                      alt="Logo de Biomagnetic Center" 
                      class="h-16 md:h-20 w-auto object-contain header-logo-img">
             </div>
 
             <!-- 2. TÍTULO CENTRADO (BIOMAGNETIC CENTER) -->
-            <!-- flex-grow hace que tome el espacio central. text-center lo centra en ese espacio. -->
-            <div class="flex-grow flex justify-center items-center px-2 md:px-0">
-                 <h1 class="text-xl sm:text-2xl lg:text-3xl font-extrabold text-white tracking-wider text-center md:mr-12">
+            <!-- flex-grow permite que tome el espacio central. En MD+ lo centramos a la izquierda del menú. -->
+            <div class="flex-grow flex justify-center items-center md:justify-start">
+                 <h1 class="text-xl sm:text-2xl lg:text-3xl font-extrabold text-white tracking-wider text-center md:text-left md:ml-4">
                     BIOMAGNETIC CENTER
                 </h1>
             </div>
 
             <!-- 3. CONTROLES DERECHOS: Navegación de Escritorio y Botón Móvil -->
-            <!-- ml-auto en escritorio empuja todo el menú a la derecha. En móvil, se queda a la derecha. -->
-            <div class="flex items-center space-x-4 ml-auto flex-shrink-0 z-20">
+            <!-- ml-auto asegura que este bloque se vaya a la derecha. Le damos un ancho fijo en MD+. -->
+            <div class="flex items-center space-x-4 ml-auto flex-shrink-0 z-20 md:w-auto">
                 
                 <!-- Desktop Nav + CTA (Visible MD+) -->
-                <nav class="hidden md:flex space-x-8 items-center">
+                <nav class="hidden md:flex items-center space-x-8">
                     <!-- Links con acento Cian vibrante -->
                     <a href="#biomagnetismo" class="text-white hover:text-cyan-400 transition duration-300 font-medium">Biomagnetismo</a>
                     <a href="#biosteopraxia" class="text-white hover:text-cyan-400 transition duration-300 font-medium">Biosteopraxia</a>
