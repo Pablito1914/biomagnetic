@@ -40,8 +40,7 @@
     <!-- Cabecera y Navegación - Usando Indigo/Morado Oscuro como color base del logo -->
     <header class="bg-indigo-900 shadow-xl sticky top-0 z-50">
         <!-- Contenedor principal: Flex para controlar los elementos de izquierda, centro y derecha -->
-        <!-- Se eliminó la altura fija h-24 para que la navegación vertical pueda crecer si es necesario -->
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center relative">
             
             <!-- 1. LOGO (IZQUIERDA) -->
             <div class="flex-shrink-0 mr-4">
@@ -57,26 +56,34 @@
                 </h1>
             </div>
 
-            <!-- 3. CONTROLES DERECHOS: Navegación de Escritorio y Botón Móvil -->
-            <!-- ml-auto: Mueve este bloque al extremo derecho -->
+            <!-- 3. CONTROLES DERECHOS: Menú Pop-up para Desktop y Botón Hamburger para Móvil -->
             <div class="flex items-center ml-auto flex-shrink-0 z-20">
                 
-                <!-- Desktop Nav & CTA Group (Visible MD+): Ahora vertical -->
-                <div class="hidden md:flex flex-col items-end space-y-2">
-
-                    <!-- Desktop Nav (Vertical Stack) -->
-                    <nav class="flex flex-col space-y-1 items-end">
-                        <!-- Links con acento Cian vibrante y texto más pequeño para mejor ajuste -->
-                        <a href="#biomagnetismo" class="text-white text-sm hover:text-cyan-400 transition duration-300 font-medium">Biomagnetismo</a>
-                        <a href="#biosteopraxia" class="text-white text-sm hover:text-cyan-400 transition duration-300 font-medium">Biosteopraxia</a>
-                        <a href="#agendas" class="text-white text-sm hover:text-cyan-400 transition duration-300 font-medium">Agendas Virtuales</a>
-                        <a href="#zapper" class="text-white text-sm hover:text-cyan-400 transition duration-300 font-medium">Equipos Zapper</a>
-                    </nav>
-
-                    <!-- Botón de Contacto (Visible MD+) -->
-                    <a href="#contacto" class="text-white btn-gradient px-4 py-2 rounded-xl shadow-lg font-semibold text-sm">
-                        Reservar Cita
-                    </a>
+                <!-- Botón Desplegable (Pop Menu) para Desktop (Visible MD+) -->
+                <!-- Usamos 'relative' aquí para que el menú desplegable 'absolute' se posicione correctamente -->
+                <div class="hidden md:block relative">
+                    <!-- Botón/Icono que abre el menú -->
+                    <button id="desktop-menu-button" class="text-white focus:outline-none p-2 rounded-lg hover:bg-indigo-700 transition duration-300">
+                        <!-- Ícono de tres puntos verticales (lucide icon: more-vertical) -->
+                        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"></path>
+                        </svg>
+                    </button>
+                    
+                    <!-- Contenedor del Menú Desplegable (Pop-up) -->
+                    <div id="desktop-dropdown-menu" class="absolute right-0 mt-2 w-56 rounded-xl shadow-2xl bg-white hidden border border-gray-100 py-2 transition-all duration-300 origin-top-right">
+                        <!-- Links de Navegación -->
+                        <a href="#biomagnetismo" class="block px-4 py-3 text-sm text-gray-800 hover:bg-indigo-50 hover:text-indigo-600 transition duration-150 font-medium">Biomagnetismo</a>
+                        <a href="#biosteopraxia" class="block px-4 py-3 text-sm text-gray-800 hover:bg-indigo-50 hover:text-indigo-600 transition duration-150 font-medium">Biosteopraxia</a>
+                        <a href="#agendas" class="block px-4 py-3 text-sm text-gray-800 hover:bg-indigo-50 hover:text-indigo-600 transition duration-150 font-medium">Agendas Virtuales</a>
+                        <a href="#zapper" class="block px-4 py-3 text-sm text-gray-800 hover:bg-indigo-50 hover:text-indigo-600 transition duration-150 font-medium">Equipos Zapper</a>
+                        
+                        <!-- Separador y CTA -->
+                        <div class="border-t border-gray-100 my-1"></div>
+                        <a href="#contacto" class="block text-center mx-3 text-white btn-gradient px-4 py-2 rounded-xl shadow-lg font-semibold text-sm">
+                            Reservar Cita
+                        </a>
+                    </div>
                 </div>
                 
                 <!-- Mobile Menu Button (Visible XS/SM) -->
@@ -359,23 +366,27 @@
                 }, 5000); // El mensaje se muestra por 5 segundos
             });
 
-            // Lógica del Menú Móvil
-            const menuButton = document.getElementById('mobile-menu-button');
+            // Lógica del Menú Móvil (Hamburger)
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
             const mobileMenu = document.getElementById('mobile-menu');
             const iconOpen = document.getElementById('icon-open');
             const iconClose = document.getElementById('icon-close');
             const mobileLinks = mobileMenu.querySelectorAll('a');
 
-            // 1. Alternar la visibilidad del menú al hacer clic en el botón
-            menuButton.addEventListener('click', () => {
+            // Alternar la visibilidad del menú móvil al hacer clic en el botón
+            mobileMenuButton.addEventListener('click', () => {
+                // Asegúrate de que el menú de escritorio esté cerrado si se abre el móvil
+                const desktopMenu = document.getElementById('desktop-dropdown-menu');
+                desktopMenu.classList.add('hidden');
+                
                 const isHidden = mobileMenu.classList.toggle('hidden');
                 
-                // 2. Alternar los íconos (hamburguesa <-> cerrar)
+                // Alternar los íconos (hamburguesa <-> cerrar)
                 iconOpen.classList.toggle('hidden', !isHidden);
                 iconClose.classList.toggle('hidden', isHidden);
             });
 
-            // 3. Cerrar el menú cuando se hace clic en cualquier enlace interno (navegación)
+            // Cerrar el menú móvil cuando se hace clic en cualquier enlace interno
             mobileLinks.forEach(link => {
                 link.addEventListener('click', () => {
                     // Ocultar el menú
@@ -383,6 +394,33 @@
                     // Mostrar el ícono de hamburguesa y ocultar el de cerrar
                     iconOpen.classList.remove('hidden');
                     iconClose.classList.add('hidden');
+                });
+            });
+
+            // Lógica del Menú Desplegable de Escritorio (Pop Menu)
+            const desktopMenuButton = document.getElementById('desktop-menu-button');
+            const desktopDropdown = document.getElementById('desktop-dropdown-menu');
+            const desktopLinks = desktopDropdown.querySelectorAll('a');
+
+            // 1. Alternar la visibilidad del menú al hacer clic en el botón
+            desktopMenuButton.addEventListener('click', (event) => {
+                event.stopPropagation(); // Evita que el evento se propague al document
+                desktopDropdown.classList.toggle('hidden');
+            });
+
+            // 2. Cerrar el menú si se hace clic fuera de él
+            document.addEventListener('click', (event) => {
+                if (!desktopDropdown.classList.contains('hidden') && 
+                    !desktopMenuButton.contains(event.target) && 
+                    !desktopDropdown.contains(event.target)) {
+                    desktopDropdown.classList.add('hidden');
+                }
+            });
+
+            // 3. Cerrar el menú al hacer clic en un enlace
+            desktopLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    desktopDropdown.classList.add('hidden');
                 });
             });
         });
