@@ -39,32 +39,27 @@
 
     <!-- Cabecera y Navegación - Usando Indigo/Morado Oscuro como color base del logo -->
     <header class="bg-indigo-900 shadow-xl sticky top-0 z-50">
-        <!-- CAMBIO CLAVE: Usamos flexbox y posicionamiento relativo/absoluto para el centrado del logo en móvil -->
+        <!-- Contenedor principal: Flex para controlar los elementos de izquierda a derecha -->
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center relative">
             
-            <!-- LOGO Y TÍTULO DE ESCRITORIO (md:block) -->
-            <!-- Este div actúa como el elemento izquierdo en desktop y se oculta casi por completo en móvil -->
-            <div class="flex items-center">
-                <h1 class="text-3xl font-extrabold text-white tracking-wide flex items-center md:flex hidden md:block">
-                    <!-- Logo para Desktop (h-12, a la izquierda) -->
-                    <img src="LOGO1.jpg" 
-                         alt="Logo de Biomagnetic Center, columna vertebral y energía" 
-                         class="h-12 w-auto mr-3 object-contain header-logo-img">
-                    <!-- Texto para Desktop -->
-                    <span class="text-white font-light">BIOMAGNETIC CENTER</span>
-                </h1>
-            </div>
-
-            <!-- NUEVO: LOGO GRANDE Y CENTRADO EN MÓVIL (Absolute Positioning) -->
-            <!-- Se utiliza h-20 para un logo más grande. Se centra con left-1/2 y transform. Es visible solo en móvil (md:hidden). -->
-            <div class="absolute left-1/2 transform -translate-x-1/2 md:hidden">
+            <!-- LOGO MÓVIL: GRANDE y EXTENDIDO -->
+            <div class="md:hidden flex items-center justify-start w-full">
                  <img src="LOGO1.jpg" 
                      alt="Logo de Biomagnetic Center" 
-                     class="h-20 w-auto object-contain header-logo-img">
+                     class="h-20 w-auto object-contain header-logo-img mr-auto">
+            </div>
+
+            <!-- CAMBIO CLAVE: LOGO DE ESCRITORIO (md:block) - Grande, Único y Separado del Menú -->
+            <!-- Usamos `w-auto mr-12` para empujar la navegación a la derecha y lograr el efecto de extensión. -->
+            <div class="hidden md:flex items-center">
+                <!-- Logo para Desktop (h-20, grande y extendido) -->
+                <img src="LOGO1.jpg" 
+                     alt="Logo de Biomagnetic Center" 
+                     class="h-20 w-auto mr-12 object-contain header-logo-img">
+                <!-- Nota: El texto "BIOMAGNETIC CENTER" ha sido eliminado aquí. -->
             </div>
             
             <!-- CONTROLES DERECHOS: Navegación de Escritorio y Botón Móvil -->
-            <!-- Se usa z-10 para asegurar que el botón de hamburguesa quede por encima del logo centrado -->
             <div class="flex items-center space-x-4 justify-end z-10">
                 <!-- Desktop Nav -->
                 <nav class="hidden md:flex space-x-8 items-center">
